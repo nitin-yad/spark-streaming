@@ -5,7 +5,7 @@ import constants.Constants._
 /**
   * Created by nitin.yadav on 24-02-2018.
   */
-object Example {
+object NetworkWordCount {
 
 
   def main(args: Array[String]) : Unit = {

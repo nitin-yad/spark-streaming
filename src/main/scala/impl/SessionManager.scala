@@ -13,6 +13,11 @@ object SessionManager {
     def getSparkStreamingContext(sec : Int): StreamingContext = {
 
       val sparkSession = SparkSession.builder.appName(Constants.AppName).master(Constants.Master).getOrCreate()
+
+      /**
+        * A SparkContext can be re-used to create multiple StreamingContexts, as long as the previous StreamingContext
+        * is stopped (without stopping the SparkContext) before the next StreamingContext is created
+        */
       new StreamingContext(sparkSession.sparkContext, Seconds(sec))
     }
 }
